@@ -99,6 +99,32 @@ namespace AddressBook.Repository
             contactDetails.Remove(uniqueName);
         }
 
+        public void SearchContact()
+        {
+            Console.WriteLine("\nEnter 1 to Search by City \nEnter 2 to Search by State");
+            int input = Convert.ToInt32(Console.ReadLine());
+            if (input == 1)
+            {
+                Console.WriteLine("Enter City: ");
+                string city = Console.ReadLine();
+                var objDuplicateCheck = contactDetails.Where(x => x.Value.City.Equals(city));
+                foreach (var item in objDuplicateCheck)
+                {
+                    Console.WriteLine($"\nFound {item.Value.FirstName} {item.Value.LastName} with {item.Value.UniqueName} as Unique Address Book residing in {city}.");
+                }
+            }
+            if (input == 2)
+            {
+                Console.WriteLine("Enter State: ");
+                string state = Console.ReadLine();
+                var objDuplicateCheck = contactDetails.Where(x => x.Value.State.Equals(state));
+                foreach (var item in objDuplicateCheck)
+                {
+                    Console.WriteLine($"\nFound {item.Value.FirstName} {item.Value.LastName} with {item.Value.UniqueName} as Unique Address Book residing in {state}.");
+                }
+            }
+        }
+
         public void DisplayContact()
         {
             foreach (var item in contactDetails)
