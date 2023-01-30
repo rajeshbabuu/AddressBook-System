@@ -108,9 +108,18 @@ namespace AddressBook.Repository
                 Console.WriteLine("Enter City: ");
                 string city = Console.ReadLine();
                 var objDuplicateCheck = contactDetails.Where(x => x.Value.City.Equals(city));
+                Console.WriteLine($"\nFound Contacts ====> ");
                 foreach (var item in objDuplicateCheck)
                 {
-                    Console.WriteLine($"\nFound {item.Value.FirstName} {item.Value.LastName} with {item.Value.UniqueName} as Unique Address Book residing in {city}.");
+                    Console.WriteLine($"\nUnique Name     ::{item.Value.UniqueName}");
+                    Console.WriteLine($"First Name      ::{item.Value.FirstName}");
+                    Console.WriteLine($"Last Name       ::{item.Value.LastName}");
+                    Console.WriteLine($"Mobile Number   ::{item.Value.MobileNumber}");
+                    Console.WriteLine($"EMail           ::{item.Value.EMail}");
+                    Console.WriteLine($"Address         ::{item.Value.Address}");
+                    Console.WriteLine($"City            ::{item.Value.City}");
+                    Console.WriteLine($"State           ::{item.Value.State}");
+                    Console.WriteLine($"Zip             ::{item.Value.Zip}");
                 }
             }
             if (input == 2)
@@ -118,9 +127,18 @@ namespace AddressBook.Repository
                 Console.WriteLine("Enter State: ");
                 string state = Console.ReadLine();
                 var objDuplicateCheck = contactDetails.Where(x => x.Value.State.Equals(state));
+                Console.WriteLine($"\nFound Contacts ====> ");
                 foreach (var item in objDuplicateCheck)
                 {
-                    Console.WriteLine($"\nFound {item.Value.FirstName} {item.Value.LastName} with {item.Value.UniqueName} as Unique Address Book residing in {state}.");
+                    Console.WriteLine($"\nUnique Name     ::{item.Value.UniqueName}");
+                    Console.WriteLine($"First Name      ::{item.Value.FirstName}");
+                    Console.WriteLine($"Last Name       ::{item.Value.LastName}");
+                    Console.WriteLine($"Mobile Number   ::{item.Value.MobileNumber}");
+                    Console.WriteLine($"EMail           ::{item.Value.EMail}");
+                    Console.WriteLine($"Address         ::{item.Value.Address}");
+                    Console.WriteLine($"City            ::{item.Value.City}");
+                    Console.WriteLine($"State           ::{item.Value.State}");
+                    Console.WriteLine($"Zip             ::{item.Value.Zip}");
                 }
             }
         }
