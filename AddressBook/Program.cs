@@ -11,13 +11,13 @@ namespace AddressBook
             ContactDetailsRepository contactDetails = new ContactDetailsRepository();
             while (true)
             {
+                ContactDetailsRepository contactDetailsRepository = new ContactDetailsRepository();
                 Console.WriteLine("\nWelcome to Address Book");
 
-                Console.WriteLine("\nEnter 1 to Add Contact Details. \nEnter 2 to Edit Contact Details. \nEnter 3 to Delete Contact Details. \n");
+                Console.WriteLine("\nEnter 1 to Add Contact Details. \nEnter 2 to Edit Contact Details. \nEnter 3 to Delete Contact Details. \nEnter 4 to Display all contacts. \n");
                 int choice = Convert.ToInt32(Console.ReadLine());
 
                 ContactDetails contactDetail = null;
-
                 switch (choice)
                 {
                     case 1:
@@ -25,6 +25,9 @@ namespace AddressBook
                         string input = Console.ReadLine();
                         while (input == "X")
                         {
+                            Console.WriteLine("\nEnter a Unique Name for Address Book");
+                            string? uniqueName = Console.ReadLine();
+
                             Console.WriteLine("\nEnter First Name: ");
                             string? firstName = Console.ReadLine();
 
@@ -54,6 +57,7 @@ namespace AddressBook
 
                             contactDetail = new ContactDetails()
                             {
+                                UniqueName = uniqueName,
                                 FirstName = firstName,
                                 LastName = lastName,
                                 MobileNumber = mobileNumber,
@@ -74,8 +78,8 @@ namespace AddressBook
 
                             while (input2 == "Y")
                             {
-                                Console.WriteLine("\nEnter Mobile Number");
-                                contactDetails.EditContactDetails(Convert.ToInt64(Console.ReadLine()));
+                                Console.WriteLine("\nEnter Unique Address Book Name");
+                                contactDetails.EditContactDetails(Console.ReadLine());
 
                                 Console.WriteLine("\nEnter Y to edit Contact Details or enter E to exit");
                                 input2 = Console.ReadLine();
@@ -90,13 +94,19 @@ namespace AddressBook
 
                             while (input3 == "Z")
                             {
-                                Console.WriteLine("\nEnter Mobile Number");
-                                contactDetails.DeleteContact(Convert.ToInt64(Console.ReadLine()));
+                                Console.WriteLine("\nEnter Unique Addess Book Name");
+                                contactDetails.DeleteContact(Console.ReadLine());
                                 Console.WriteLine("Contact Deleted");
 
                                 Console.WriteLine("\nEnter Z to Delete a Contact or enter E to exit");
                                 input3 = Console.ReadLine();
                             }
+                            break;
+                        }
+
+                    case 4:
+                        {
+                            contactDetails.DisplayContact();
                             break;
                         }
 
