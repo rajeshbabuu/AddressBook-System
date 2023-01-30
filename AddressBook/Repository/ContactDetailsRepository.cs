@@ -101,16 +101,18 @@ namespace AddressBook.Repository
 
         public void SearchContact()
         {
+            int count = 0;
             Console.WriteLine("\nEnter 1 to Search by City \nEnter 2 to Search by State");
             int input = Convert.ToInt32(Console.ReadLine());
             if (input == 1)
             {
-                Console.WriteLine("Enter City: ");
+                Console.WriteLine("\nEnter City: ");
                 string city = Console.ReadLine();
                 var objDuplicateCheck = contactDetails.Where(x => x.Value.City.Equals(city));
                 Console.WriteLine($"\nFound Contacts ====> ");
                 foreach (var item in objDuplicateCheck)
                 {
+                    count++;
                     Console.WriteLine($"\nUnique Name     ::{item.Value.UniqueName}");
                     Console.WriteLine($"First Name      ::{item.Value.FirstName}");
                     Console.WriteLine($"Last Name       ::{item.Value.LastName}");
@@ -121,15 +123,17 @@ namespace AddressBook.Repository
                     Console.WriteLine($"State           ::{item.Value.State}");
                     Console.WriteLine($"Zip             ::{item.Value.Zip}");
                 }
+                Console.WriteLine($"\nTotal {count} persons in {city} region");
             }
             if (input == 2)
             {
-                Console.WriteLine("Enter State: ");
+                Console.WriteLine("\nEnter State: ");
                 string state = Console.ReadLine();
                 var objDuplicateCheck = contactDetails.Where(x => x.Value.State.Equals(state));
                 Console.WriteLine($"\nFound Contacts ====> ");
                 foreach (var item in objDuplicateCheck)
                 {
+                    count++;
                     Console.WriteLine($"\nUnique Name     ::{item.Value.UniqueName}");
                     Console.WriteLine($"First Name      ::{item.Value.FirstName}");
                     Console.WriteLine($"Last Name       ::{item.Value.LastName}");
@@ -140,6 +144,7 @@ namespace AddressBook.Repository
                     Console.WriteLine($"State           ::{item.Value.State}");
                     Console.WriteLine($"Zip             ::{item.Value.Zip}");
                 }
+                Console.WriteLine($"\nTotal {count} persons in {state} region");
             }
         }
 
