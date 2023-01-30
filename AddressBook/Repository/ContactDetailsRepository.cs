@@ -11,17 +11,8 @@ namespace AddressBook.Repository
     {
         Dictionary<long, ContactDetails> contactDetails = new Dictionary<long, ContactDetails>();
 
-        public void AddContactDetails(string firstName, string lastName, long mobileNumber, string eMail, string address, string city, string state, int zip)
+        public void AddContactDetails(ContactDetails contactDetail) //using mobile number because it is unique.
         {
-            ContactDetails contactDetail = new ContactDetails();
-            contactDetail.FirstName = firstName;
-            contactDetail.LastName = lastName;
-            contactDetail.MobileNumber = mobileNumber;
-            contactDetail.EMail = eMail;
-            contactDetail.Address = address;
-            contactDetail.City = city;
-            contactDetail.State = state;
-            contactDetail.Zip = zip;
             contactDetails.Add(contactDetail.MobileNumber, contactDetail);
         }
 
