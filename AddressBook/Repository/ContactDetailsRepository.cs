@@ -11,9 +11,27 @@ namespace AddressBook.Repository
     {
         Dictionary<string, ContactDetails> contactDetails = new Dictionary<string, ContactDetails>();
 
+        int contact = 0;
         public void AddContactDetails(ContactDetails contactDetail)
         {
-            contactDetails.Add(contactDetail.UniqueName, contactDetail);
+            if (contact == 0)
+            {
+                contactDetails.Add(contactDetail.UniqueName, contactDetail);
+                contact++;
+            }
+            else if (contact != 0)
+            {
+                var objDuplicateCheck = contactDetails.Where(x => x.Value.FirstName.Equals(contactDetail.FirstName));
+                if (!objDuplicateCheck.Any())
+                {
+                    contactDetails.Add(contactDetail.UniqueName, contactDetail);
+                    contact++;
+                }
+                else
+                {
+                    Console.WriteLine($"\n{contactDetail.FirstName} {contactDetail.LastName}'s details already exists");
+                }
+            }
         }
 
         public void EditContactDetails(string uniqueName)
@@ -85,6 +103,7 @@ namespace AddressBook.Repository
         {
             foreach (var item in contactDetails)
             {
+                Console.WriteLine("\n**********|| Address Book ||**********");
                 Console.WriteLine($"\nUnique Name     ::{item.Value.UniqueName}");
                 Console.WriteLine($"First Name      ::{item.Value.FirstName}");
                 Console.WriteLine($"Last Name       ::{item.Value.LastName}");

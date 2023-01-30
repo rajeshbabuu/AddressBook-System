@@ -34,7 +34,7 @@ namespace AddressBook
                             Console.WriteLine("\nEnter Last Name: ");
                             string? lastName = Console.ReadLine();
 
-                            Console.WriteLine("\nEnter Mobile Number: ");
+                            Console.WriteLine("\nEnter 10 Digit Mobile Number: ");
                             long mobileNumber = Convert.ToInt64(Console.ReadLine());
 
                             Console.WriteLine("\nEnter EMail: ");
@@ -49,7 +49,7 @@ namespace AddressBook
                             Console.WriteLine("\nEnter State: ");
                             string? state = Console.ReadLine();
 
-                            Console.WriteLine("\nEnter Zip: ");
+                            Console.WriteLine("\nEnter 6 Digit Zip: ");
                             int zip = Convert.ToInt32(Console.ReadLine());
 
                             Console.WriteLine("\nEnter X to Add Contact Details or enter E to exit.");
