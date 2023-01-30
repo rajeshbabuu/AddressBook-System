@@ -75,6 +75,12 @@ namespace AddressBook.Repository
             }
         }
 
+        public void DeleteContact(long mobileNumber)
+        {
+            var obj = contactDetails[mobileNumber];
+            contactDetails.Remove(mobileNumber);
+        }
+
         public void DisplayContact()
         {
             foreach (var item in contactDetails)

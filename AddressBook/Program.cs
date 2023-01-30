@@ -73,6 +73,22 @@ namespace AddressBook
 
             }
 
+            Console.WriteLine("\nEnter Z to Delete a Contact");
+            string? input3 = Console.ReadLine();
+
+            while (input3 == "Z")
+            {
+                Console.WriteLine("\nEnter Mobile Number");
+                contactDetails.DeleteContact(Convert.ToInt64(Console.ReadLine()));
+                Console.WriteLine("Contact Deleted");
+
+                Console.WriteLine("\nEnter Z to Delete a Contact or enter E to exit");
+                input3 = Console.ReadLine();
+            }
+
+            contactDetails.DisplayContact();
+            Console.ReadLine();
+
             contactDetails.DisplayContact();
             Console.ReadLine();
         }
